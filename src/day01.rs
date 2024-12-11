@@ -1,7 +1,7 @@
 use anyhow::Result;
 use std::fs;
 
-pub fn day01() -> Result<()> {
+pub fn solve() -> Result<()> {
     let input: String = fs::read_to_string("data/day01_input.txt")?;
 
     println!("Day 1 Part 1: {}", part1(input.clone()));
