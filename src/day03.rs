@@ -17,10 +17,7 @@ fn part1(input: String) -> usize {
 
     for c in input.trim().chars() {
         loc = go(loc, c);
-
-        if let None = visited.get(&loc) {
-            visited.insert(loc);
-        }
+        update(loc, &mut visited);
     }
 
     visited.len()
