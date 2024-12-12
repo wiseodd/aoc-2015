@@ -1,5 +1,6 @@
 use anyhow::Result;
-use std::{collections::HashSet, fs};
+use rustc_hash::FxHashSet;
+use std::fs;
 
 pub fn solve() -> Result<()> {
     let input: String = fs::read_to_string("data/day03_input.txt")?;
@@ -12,7 +13,7 @@ pub fn solve() -> Result<()> {
 
 fn part1(input: String) -> usize {
     let mut loc: (i32, i32) = (0, 0);
-    let mut visited: HashSet<(i32, i32)> = HashSet::new();
+    let mut visited = FxHashSet::default();
     visited.insert(loc);
 
     for c in input.trim().chars() {
@@ -26,8 +27,7 @@ fn part1(input: String) -> usize {
 fn part2(input: String) -> usize {
     let mut loc1: (i32, i32) = (0, 0);
     let mut loc2: (i32, i32) = (0, 0);
-
-    let mut visited: HashSet<(i32, i32)> = HashSet::new();
+    let mut visited = FxHashSet::default();
     visited.insert(loc1);
 
     for (i, c) in input.trim().chars().enumerate() {
@@ -52,7 +52,7 @@ fn go(loc: (i32, i32), dir: char) -> (i32, i32) {
     }
 }
 
-fn update(loc: (i32, i32), visited: &mut HashSet<(i32, i32)>) -> () {
+fn update(loc: (i32, i32), visited: &mut FxHashSet<(i32, i32)>) -> () {
     if let None = visited.get(&loc) {
         visited.insert(loc);
     }
