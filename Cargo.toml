@@ -5,4 +5,5 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.94"
+md5 = "0.7.0"
 rustc-hash = "2.1.0"

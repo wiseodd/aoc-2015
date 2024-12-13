@@ -4,6 +4,7 @@ use std::env;
 pub mod day01;
 pub mod day02;
 pub mod day03;
+pub mod day04;
 
 fn main() -> Result<()> {
     let args: Vec<String> = env::args().collect();
@@ -16,8 +17,9 @@ fn main() -> Result<()> {
 
     match module {
         "day01" => day01::solve()?,
-        "day02" => day02::solve()?,
+        "day02" => day03::solve()?,
         "day03" => day03::solve()?,
+        "day04" => day04::solve()?,
         _ => println!("Not found!"),
     }
 
